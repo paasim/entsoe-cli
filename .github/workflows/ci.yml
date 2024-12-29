@@ -1,0 +1,18 @@
+name: build
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - name: Check the package and run the tests
+      env:
+        ENTSOE_TOKEN: ${{ secrets.ENTSOE_TOKEN }}
+      run: make check && make test
