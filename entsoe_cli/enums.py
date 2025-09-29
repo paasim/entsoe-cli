@@ -11,17 +11,19 @@ class DocumentType(StrEnum):
 
     PriceDocument = "A44"
 
-    def request_type(self) -> str:
-        """Return legible request type for document type."""
-        match self:
-            case DocumentType.PriceDocument:
-                return "Energy price"
+    def __str__(self) -> str:
+        """Return string representation for the document type."""
+        return f"{self.name} ({self.value})"
 
 
 class Domain(StrEnum):
     """Domain for the observation. Only Finland is supported for now."""
 
     Finland = "10YFI-1--------U"
+
+    def __str__(self) -> str:
+        """Return string representation for the unit."""
+        return f"{self.name} ({self.value})"
 
 
 class Unit(StrEnum):
@@ -43,6 +45,10 @@ class Unit(StrEnum):
             case _:
                 msg = f"invalid unit {currency}/{unit}"
                 raise ValueError(msg)
+
+    def __str__(self) -> str:
+        """Return string representation for the unit."""
+        return self.value
 
 
 class Resolution(StrEnum):
@@ -67,3 +73,7 @@ class Resolution(StrEnum):
                 return timedelta(minutes=15)
             case Resolution.Hourly:
                 return timedelta(minutes=60)
+
+    def __str__(self) -> str:
+        """Return string representation for the unit."""
+        return self.value

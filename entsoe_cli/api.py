@@ -58,17 +58,17 @@ class Params:
 
     def __iter__(self) -> Iterator[tuple[str, str]]:
         """Return iterator with request parameters."""
-        yield ("documentType", str(self.document_type))
+        yield ("documentType", self.document_type.value)
         yield ("periodStart", _format_dt_param_entsoe(self.start_time))
         yield ("periodEnd", _format_dt_param_entsoe(self.end_time))
-        yield ("in_Domain", str(self.domain))
-        yield ("out_Domain", str(self.domain))
+        yield ("in_Domain", self.domain.value)
+        yield ("out_Domain", self.domain.value)
         yield ("contract_MarketAgreement.type", MARKET_AGREEMENT_TYPE)
         yield ("securityToken", self.security_token)
 
     def __str__(self) -> str:
         """Return legible representation."""
-        s = f"{self.document_type.request_type()} for {self.domain}"
+        s = f"{self.document_type} for {self.domain}"
         s += f"\n between {self.start_time} and {self.end_time}"
         return s
 
