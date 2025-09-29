@@ -1,6 +1,6 @@
 [project]
 name = "entsoe_cli"
-version = "0.1.0"
+version = "0.1.1"
 description = "Python library for querying for data from ENTSO-E transparency platform"
 readme = "README.md"
 requires-python = ">=3.13"
