@@ -1,4 +1,4 @@
-# `entsoe_cli`
+# `entsoe-cli`
 
 [![build](https://github.com/paasim/entsoe_cli/workflows/build/badge.svg)](https://github.com/paasim/entsoe_cli/actions)
 
